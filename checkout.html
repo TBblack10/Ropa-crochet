@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Finalizar compra · Punto Tierra</title>
+<meta name="description" content="Finalizá tu compra en Punto Tierra.">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header site-header--minimal">
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-mark">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="7.5"/><path d="M7 9c2 1.5 2 4.5 0 6M12 6.2c1.7 2.3 1.7 9.3 0 11.6M17 9c-2 1.5-2 4.5 0 6"/></svg>
+        </span>
+        <span class="logo-text">
+          <strong>Punto Tierra</strong>
+          <small>Tejidos artesanales · Buenos Aires</small>
+        </span>
+      </a>
+      <a href="index.html" class="auth-back-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Seguir comprando
+      </a>
+    </div>
+  </div>
+</header>
+
+<main class="checkout-main">
+  <div class="container">
+
+    <!-- ---------- Estado: carrito vacío ---------- -->
+    <div class="checkout-empty" id="checkoutEmpty" hidden>
+      <h1 class="checkout-title">Tu carrito está vacío</h1>
+      <p>Todavía no agregaste ninguna prenda. ¡Volvé a la tienda y elegí algo tejido con amor! 🌿</p>
+      <a href="index.html#productos" class="btn btn-terracotta">Ver productos</a>
+    </div>
+
+    <!-- ---------- Checkout ---------- -->
+    <div id="checkoutContent">
+      <h1 class="checkout-title">Finalizar compra</h1>
+      <p class="checkout-steps"><span class="active">1. Datos y envío</span> · <span class="active">2. Pago</span> · <span>3. Confirmación</span></p>
+
+      <form id="checkoutForm">
+        <div class="checkout-grid">
+
+          <div class="checkout-col">
+            <div class="checkout-panel">
+              <h2>Datos de contacto y envío</h2>
+              <div class="checkout-form-grid">
+                <label class="field field--full">
+                  <span>Nombre y apellido</span>
+                  <input type="text" id="custName" required placeholder="Tu nombre completo">
+                </label>
+                <label class="field field--full">
+                  <span>Email</span>
+                  <input type="email" id="custEmail" required placeholder="vos@email.com">
+                </label>
+                <label class="field field--full">
+                  <span>Teléfono</span>
+                  <input type="tel" id="custPhone" required placeholder="+54 11 ...">
+                </label>
+                <label class="field field--full">
+                  <span>Dirección</span>
+                  <input type="text" id="custAddress" required placeholder="Calle, número, piso/depto">
+                </label>
+                <label class="field">
+                  <span>Ciudad</span>
+                  <input type="text" id="custCity" required placeholder="Lomas de Zamora">
+                </label>
+                <label class="field">
+                  <span>Código postal</span>
+                  <input type="text" id="custZip" required placeholder="1832">
+                </label>
+              </div>
+            </div>
+
+            <div class="checkout-panel">
+              <h2>Método de pago</h2>
+              <div class="payment-options" id="paymentOptions">
+                <label class="payment-option is-selected">
+                  <input type="radio" name="payment" value="tarjeta" checked>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="2"/><path d="M2.5 10h19"/></svg>
+                  Tarjeta de crédito / débito
+                </label>
+                <label class="payment-option">
+                  <input type="radio" name="payment" value="transferencia">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10 12 3l9 7M5 10v9M19 10v9M9 19v-5h6v5M3 19h18"/></svg>
+                  Transferencia bancaria
+                </label>
+                <label class="payment-option">
+                  <input type="radio" name="payment" value="efectivo">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="6" width="19" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/></svg>
+                  Efectivo al recibir
+                </label>
+              </div>
+              <p class="payment-note">🔒 Este es un checkout de demostración: no se procesa ningún cobro real todavía.</p>
+            </div>
+          </div>
+
+          <aside class="order-summary">
+            <h2>Resumen del pedido</h2>
+            <div class="order-summary-items" id="orderSummaryItems"></div>
+
+            <div class="promo-row">
+              <input type="text" id="promoInput" placeholder="Código de descuento">
+              <button type="button" class="btn btn-outline" id="promoApplyBtn">Aplicar</button>
+            </div>
+            <p class="promo-feedback" id="promoFeedback" hidden></p>
+
+            <div class="order-summary-totals">
+              <div><span>Subtotal</span><strong id="sumSubtotal">$0</strong></div>
+              <div class="discount-row" id="sumDiscountRow" hidden><span>Descuento</span><strong id="sumDiscount">-$0</strong></div>
+              <div><span>Envío</span><strong id="sumShipping">$0</strong></div>
+              <div class="grand-total"><span>Total</span><span id="sumTotal">$0</span></div>
+            </div>
+
+            <button type="submit" class="btn btn-terracotta auth-submit" style="margin-top:18px;">Confirmar pedido</button>
+          </aside>
+
+        </div>
+      </form>
+    </div>
+
+  </div>
+</main>
+
+<script src="js/cart.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/orders.js"></script>
+<script src="js/checkout.js"></script>
+</body>
+</html>

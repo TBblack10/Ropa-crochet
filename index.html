@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Punto Tierra · Tejidos artesanales · Buenos Aires</title>
+<meta name="description" content="Punto Tierra — tejidos artesanales hechos a mano en Buenos Aires. Vestidos, sacos, tops y accesorios 100% artesanales.">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ===================== HEADER ===================== -->
+<header class="site-header">
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <a href="#inicio" class="logo">
+        <span class="logo-mark">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="7.5"/><path d="M7 9c2 1.5 2 4.5 0 6M12 6.2c1.7 2.3 1.7 9.3 0 11.6M17 9c-2 1.5-2 4.5 0 6"/></svg>
+        </span>
+        <span class="logo-text">
+          <strong>Punto Tierra</strong>
+          <small>Tejidos artesanales · Buenos Aires</small>
+        </span>
+      </a>
+
+      <div class="topbar-right">
+        <form class="searchbar" role="search" id="searchForm">
+          <span class="search-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+          </span>
+          <input type="search" id="searchInput" placeholder="Buscar vestidos, sacos, accesorios...">
+          <button type="submit">Buscar</button>
+        </form>
+
+        <div class="topbar-actions">
+          <div class="account-menu" id="accountMenu">
+            <button class="account-btn" id="accountBtn" aria-label="Mi cuenta" aria-expanded="false">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c1.4-3.6 4.3-5.4 7-5.4S17.6 16.4 19 20"/></svg>
+            </button>
+            <div class="account-dropdown" id="accountDropdown" hidden></div>
+          </div>
+
+          <button class="cart-btn" id="cartBtn" aria-label="Ver carrito">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8h12l-1 12H7L6 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+            <span class="cart-badge" id="cartBadge">0</span>
+          </button>
+          <a href="#productos" class="btn btn-light"><svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M3 4h2l2.4 12.2a2 2 0 0 0 2 1.6h8a2 2 0 0 0 2-1.6L21 8H6"/></svg> Comprar ahora</a>
+        </div>
+
+        <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <nav class="mainnav" id="mainNav">
+    <div class="container">
+      <ul>
+        <li><a href="#inicio" class="active">Inicio</a></li>
+        <li><a href="#productos">Productos</a></li>
+        <li><a href="#promociones">Promociones <span class="tag-hot">HOT</span></a></li>
+        <li><a href="#nosotros">Sobre nosotros</a></li>
+        <li><a href="#contacto">Contáctanos</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<!-- ===================== CART DRAWER ===================== -->
+<div class="cart-drawer" id="cartDrawer" aria-hidden="true">
+  <div class="cart-drawer-overlay" id="cartDrawerOverlay"></div>
+  <aside class="cart-drawer-panel" role="dialog" aria-label="Carrito de compras">
+    <div class="cart-drawer-head">
+      <h3>Tu carrito</h3>
+      <button class="cart-drawer-close" id="cartDrawerClose" aria-label="Cerrar carrito">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="cart-drawer-items" id="cartDrawerItems">
+      <p class="cart-drawer-empty">Tu carrito está vacío. ¡Sumá alguna prenda tejida con amor! 🌿</p>
+    </div>
+    <div class="cart-drawer-footer" id="cartDrawerFooter" hidden>
+      <div class="cart-drawer-row">
+        <span>Subtotal</span>
+        <span id="cartDrawerSubtotal">$0</span>
+      </div>
+      <a href="checkout.html" class="btn btn-terracotta cart-drawer-cta">Finalizar compra →</a>
+    </div>
+  </aside>
+</div>
+
+<main>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero" id="inicio">
+  <div class="hero-grid">
+
+    <div class="hero-copy">
+      <span class="badge badge-leaf"><svg class="badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19c8-1 13-6 14-14C11 6 6 11 5 19Z"/><path d="M5 19c2-4 5-7 9-9"/></svg> Nueva colección otoño</span>
+      <h1>Tejido<br>con alma</h1>
+      <p class="hero-sub">hecho a mano, con amor</p>
+      <p class="hero-text">Cada prenda de Punto Tierra nace de hilos seleccionados y manos artesanas. Sin máquinas, sin fábricas — solo creatividad, tiempo y cariño.</p>
+
+      <div class="hero-ctas">
+        <a href="#nosotros" class="btn btn-terracotta">Sobre nosotros →</a>
+        <a href="#contacto" class="btn btn-outline">Contáctanos</a>
+      </div>
+
+      <ul class="hero-checks">
+        <li>✓ 100% artesanal</li>
+        <li>✓ Envío a todo el país</li>
+        <li>✓ Pago en cuotas</li>
+      </ul>
+    </div>
+
+    <div class="hero-products">
+      <article class="hero-card hero-card--big" data-id="vestido-tierra-roja" data-price="8900" data-category="vestidos">
+        <span class="badge badge-star">★ Bestseller</span>
+        <div class="garment garment--dress garment--terracotta">
+          <svg viewBox="0 0 120 140" class="garment-svg" aria-hidden="true">
+            <line x1="40" y1="10" x2="40" y2="28" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+            <line x1="80" y1="10" x2="80" y2="28" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+            <path d="M30 30 L60 18 L90 30 L100 120 L20 120 Z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+            <circle cx="60" cy="55" r="6" fill="none" stroke="currentColor" stroke-width="2.5"/>
+            <line x1="60" y1="49" x2="60" y2="61" stroke="currentColor" stroke-width="2"/>
+            <line x1="54" y1="55" x2="66" y2="55" stroke="currentColor" stroke-width="2"/>
+          </svg>
+        </div>
+        <div class="card-info">
+          <div>
+            <h3>Vestido Tierra Roja</h3>
+            <p class="price">$8.900</p>
+          </div>
+          <button class="add-btn" data-name="Vestido Tierra Roja" data-price="8900" aria-label="Agregar Vestido Tierra Roja">+</button>
+        </div>
+      </article>
+
+      <article class="hero-card hero-card--sm" data-id="top-salvia" data-price="3200" data-category="tops">
+        <div class="garment garment--top garment--sage">
+          <svg viewBox="0 0 120 100" class="garment-svg" aria-hidden="true">
+            <line x1="40" y1="8" x2="40" y2="22" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+            <line x1="80" y1="8" x2="80" y2="22" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+            <path d="M32 24 L88 24 L92 88 L28 88 Z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="card-info">
+          <div>
+            <h3>Top Salvia</h3>
+            <p class="price">$3.200</p>
+          </div>
+          <button class="add-btn" data-name="Top Salvia" data-price="3200" aria-label="Agregar Top Salvia">+</button>
+        </div>
+      </article>
+
+      <article class="hero-card hero-card--sm" data-id="saco-arena" data-price="5500" data-category="sacos">
+        <div class="garment garment--cardigan garment--mustard">
+          <svg viewBox="0 0 120 100" class="garment-svg" aria-hidden="true">
+            <path d="M30 20 L58 8 L58 88 L26 88 L20 30 Z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+            <path d="M90 20 L62 8 L62 88 L94 88 L100 30 Z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+            <circle cx="60" cy="30" r="2.2" fill="currentColor"/>
+            <circle cx="60" cy="45" r="2.2" fill="currentColor"/>
+            <circle cx="60" cy="60" r="2.2" fill="currentColor"/>
+            <circle cx="60" cy="75" r="2.2" fill="currentColor"/>
+          </svg>
+        </div>
+        <div class="card-info">
+          <div>
+            <h3>Saco Arena</h3>
+            <p class="price">$5.500</p>
+          </div>
+          <button class="add-btn" data-name="Saco Arena" data-price="5500" aria-label="Agregar Saco Arena">+</button>
+        </div>
+      </article>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===================== PRODUCTOS ===================== -->
+<section class="section productos" id="productos">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <h2>Lo que<br><em>más se lleva</em></h2>
+      </div>
+      <p class="section-lead">Prendas seleccionadas por nuestras clientas más fieles. Tejido artesanal en hilos naturales y premium.</p>
+    </div>
+
+    <div class="filters" id="filters" role="tablist" aria-label="Filtrar productos">
+      <button class="filter-pill active" data-filter="todos"><svg class="pill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="2.6"/><path d="M12 3v3.4M12 17.6V21M3 12h3.4M17.6 12H21M5.6 5.6l2.4 2.4M16 16l2.4 2.4M18.4 5.6 16 8M8 16l-2.4 2.4"/></svg> Todos</button>
+      <button class="filter-pill" data-filter="vestidos"><svg class="pill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3 7 5v2L4 21h16L17 7V5l-2-2"/><path d="M9 3c0 1.7 1.3 3 3 3s3-1.3 3-3"/></svg> Vestidos</button>
+      <button class="filter-pill" data-filter="sacos"><svg class="pill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 4 4 7l2 4 2-1.4V21h8V9.6L18 11l2-4-4-3-4 2-4-2Z"/></svg> Sacos</button>
+      <button class="filter-pill" data-filter="tops"><svg class="pill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 5 4 9l3 2.6V19h10v-7.4L20 9l-3-4-5 2-5-2Z"/></svg> Tops</button>
+      <button class="filter-pill" data-filter="accesorios"><svg class="pill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="9" width="16" height="11" rx="1.5"/><path d="M4 13h16M12 9V6a3 3 0 1 1 3 3M9 6a3 3 0 0 0 3 3"/></svg> Accesorios</button>
+      <button class="filter-pill" data-filter="oferta"><svg class="pill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2c1 3-2 4-2 7a3 3 0 0 0 6 0c1.5 1.5 2 3.4 2 5a6 6 0 1 1-12 0c0-3 1.5-4.5 3-6.5 1-1.3 2-2.7 3-5.5Z"/></svg> En oferta</button>
+    </div>
+
+    <div class="product-grid" id="productGrid">
+
+      <article class="product-card" data-category="vestidos">
+        <div class="product-media garment--terracotta">
+          <span class="tag tag-nuevo">Nuevo</span>
+          <button class="wish-btn" aria-label="Agregar a favoritos">♡</button>
+          <svg viewBox="0 0 120 140" class="garment-svg" aria-hidden="true">
+            <line x1="40" y1="10" x2="40" y2="28" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+            <line x1="80" y1="10" x2="80" y2="28" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+            <path d="M30 30 L60 18 L90 30 L100 120 L20 120 Z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+            <path d="M50 50 L55 56 L70 42" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0"/>
+            <circle cx="50" cy="60" r="3" fill="none" stroke="currentColor" stroke-width="1.6"/>
+            <circle cx="70" cy="70" r="3" fill="none" stroke="currentColor" stroke-width="1.6"/>
+            <circle cx="60" cy="85" r="3" fill="none" stroke="currentColor" stroke-width="1.6"/>
+            <circle cx="60" cy="60" r="3" fill="none" stroke="currentColor" stroke-width="1.6"/>
+          </svg>
+        </div>
+        <div class="product-body">
+          <h3>Vestido Cálido</h3>
+          <p class="product-desc">Punto calado, hilo acrílico premium. Tiritas cruzadas en espalda. Muy fresco.</p>
+          <div class="sizes">
+            <span>S</span><span>M</span><span>L</span><span>XL</span>
+          </div>
+          <div class="product-footer">
+            <p class="price">$6.200</p>
+            <button class="add-btn add-btn--text" data-name="Vestido Cálido" data-price="6200">+ Agregar</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="product-card" data-category="sacos oferta">
+        <div class="product-media garment--sage">
+          <span class="tag tag-off">-15%</span>
+          <button class="wish-btn is-active" aria-label="Quitar de favoritos">♥</button>
+          <svg viewBox="0 0 120 100" class="garment-svg" aria-hidden="true">
+            <line x1="40" y1="8" x2="40" y2="22" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+            <line x1="80" y1="8" x2="80" y2="22" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+            <path d="M28 24 L40 14 L80 14 L92 24 L96 90 L24 90 Z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+            <rect x="34" y="68" width="16" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="2"/>
+            <rect x="70" y="68" width="16" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="2"/>
+          </svg>
+        </div>
+        <div class="product-body">
+          <h3>Saco Bosque</h3>
+          <p class="product-desc">Verde salvia, manga larga, tejido grueso para otoño. Con bolsillos delanteros.</p>
+          <div class="sizes">
+            <span>S</span><span>M</span><span>L</span>
+          </div>
+          <div class="product-footer">
+            <p class="price">$7.650 <s>$9.000</s></p>
+            <button class="add-btn add-btn--text" data-name="Saco Bosque" data-price="7650">+ Agregar</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="product-card" data-category="sacos">
+        <div class="product-media garment--mustard">
+          <span class="tag tag-excl">Exclusivo</span>
+          <button class="wish-btn" aria-label="Agregar a favoritos">♡</button>
+          <svg viewBox="0 0 120 100" class="garment-svg" aria-hidden="true">
+            <path d="M30 20 L58 8 L58 88 L26 88 L20 30 Z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+            <path d="M90 20 L62 8 L62 88 L94 88 L100 30 Z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+            <circle cx="60" cy="30" r="2.2" fill="currentColor"/>
+            <circle cx="60" cy="45" r="2.2" fill="currentColor"/>
+            <circle cx="60" cy="60" r="2.2" fill="currentColor"/>
+            <circle cx="60" cy="75" r="2.2" fill="currentColor"/>
+          </svg>
+        </div>
+        <div class="product-body">
+          <h3>Cardigan Dorado</h3>
+          <p class="product-desc">Hilo dorado premium, botones vintage terracota. Talle S/M. Edición limitada.</p>
+          <div class="sizes">
+            <span>S/M</span><span>L/XL</span>
+          </div>
+          <div class="product-footer">
+            <p class="price">$5.900</p>
+            <button class="add-btn add-btn--text" data-name="Cardigan Dorado" data-price="5900">+ Agregar</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="product-card" data-category="tops">
+        <div class="product-media garment--terracotta">
+          <span class="tag tag-verano">Verano</span>
+          <button class="wish-btn" aria-label="Agregar a favoritos">♡</button>
+          <svg viewBox="0 0 120 100" class="garment-svg" aria-hidden="true">
+            <line x1="40" y1="8" x2="40" y2="22" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+            <line x1="80" y1="8" x2="80" y2="22" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+            <path d="M32 24 L88 24 L92 60 L28 60 Z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+            <line x1="30" y1="64" x2="30" y2="92" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <line x1="40" y1="64" x2="40" y2="92" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <line x1="50" y1="64" x2="50" y2="92" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <line x1="60" y1="64" x2="60" y2="92" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <line x1="70" y1="64" x2="70" y2="92" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <line x1="80" y1="64" x2="80" y2="92" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <line x1="90" y1="64" x2="90" y2="92" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="product-body">
+          <h3>Top Flecos Arcilla</h3>
+          <p class="product-desc">Top con flecos artesanales, tiritas regulables. Perfecto para la temporada cálida.</p>
+          <div class="sizes">
+            <span>S</span><span>M</span><span>L</span>
+          </div>
+          <div class="product-footer">
+            <p class="price">$3.800</p>
+            <button class="add-btn add-btn--text" data-name="Top Flecos Arcilla" data-price="3800">+ Agregar</button>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <p class="empty-state" id="emptyState" hidden>No encontramos prendas en esta categoría todavía. Probá con otro filtro.</p>
+  </div>
+</section>
+
+<!-- ===================== PROMOCIONES ===================== -->
+<section class="section promo" id="promociones">
+  <div class="container promo-grid">
+    <div class="promo-copy">
+      <h2><svg class="heading-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19c8-1 13-6 14-14C11 6 6 11 5 19Z"/><path d="M5 19c2-4 5-7 9-9"/></svg> Promos de<br>temporada</h2>
+      <p>Aprovechá nuestras ofertas especiales. Tiempo limitado, stock limitado — las mejores prendas artesanales de la temporada.</p>
+    </div>
+
+    <div class="promo-code-block">
+      <p class="promo-eyebrow">Código de descuento</p>
+      <p class="promo-code">TIERRA20</p>
+      <button class="btn btn-light" id="copyCodeBtn"><svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="5" width="10" height="15" rx="1.5"/><path d="M9 5V3.6c0-.3.3-.6.6-.6h4.8c.3 0 .6.3.6.6V5"/></svg> Copiar código</button>
+    </div>
+
+    <div class="promo-cards">
+      <div class="promo-card">
+        <span class="promo-num">20%</span>
+        <span class="promo-detail"><strong>Primera compra</strong>Descuento en tu primer pedido</span>
+      </div>
+      <div class="promo-card">
+        <span class="promo-num">3×2</span>
+        <span class="promo-detail"><strong>En sacos</strong>Llevá 3 y pagá solo 2</span>
+      </div>
+      <div class="promo-card">
+        <span class="promo-num">Free</span>
+        <span class="promo-detail"><strong>Envío gratis</strong>En compras sobre $8.000</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SOBRE NOSOTROS ===================== -->
+<section class="section about" id="nosotros">
+  <div class="container about-grid">
+    <div class="about-gallery">
+      <div class="gallery-tile gallery-tile--rose gallery-tile--tall">
+        <svg viewBox="0 0 120 140" class="garment-svg" aria-hidden="true">
+          <line x1="40" y1="10" x2="40" y2="28" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+          <line x1="80" y1="10" x2="80" y2="28" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+          <path d="M30 30 L60 18 L90 30 L100 120 L20 120 Z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="gallery-tile gallery-tile--lavender">
+        <svg viewBox="0 0 100 80" aria-hidden="true">
+          <path d="M50 20 C 65 20, 65 45, 50 45 C 35 45, 35 60, 50 60" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="50" cy="20" r="4" fill="currentColor"/>
+        </svg>
+      </div>
+      <div class="gallery-tile gallery-tile--sage">
+        <svg viewBox="0 0 100 80" aria-hidden="true">
+          <circle cx="50" cy="32" r="3.5" fill="currentColor"/>
+          <circle cx="38" cy="46" r="3.5" fill="currentColor"/>
+          <circle cx="62" cy="46" r="3.5" fill="currentColor"/>
+          <circle cx="50" cy="58" r="3.5" fill="currentColor"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="about-copy">
+      <span class="badge badge-pink"><svg class="badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="2.4"/><path d="M12 9.6c-1.6-2-1.6-4.6 0-6 1.6 1.4 1.6 4 0 6Zm0 4.8c1.6 2 1.6 4.6 0 6-1.6-1.4-1.6-4 0-6ZM9.6 12c-2-1.6-4.6-1.6-6 0 1.4 1.6 4 1.6 6 0Zm4.8 0c2-1.6 4.6-1.6 6 0-1.4 1.6-4 1.6-6 0Z"/></svg> Nuestra historia</span>
+      <h2>Hilo a hilo,<br><em>desde el corazón</em></h2>
+      <p>Punto Tierra nació en una mesa de cocina, entre ovillos de lana y tazas de mate. Hoy somos un equipo de tejedoras que convierte cada hilo en una prenda con historia propia.</p>
+      <p>No usamos máquinas ni producción en masa: cada pieza lleva entre 8 y 20 horas de trabajo manual, con materiales seleccionados y mucho cariño puesto en cada punto.</p>
+      <div class="founder">
+        <span class="founder-avatar">MT</span>
+        <span class="founder-info">
+          <em>María Tejedora</em>
+          <small>Fundadora · Punto Tierra</small>
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CONTACTO ===================== -->
+<section class="section contact" id="contacto">
+  <div class="container contact-grid">
+    <div class="contact-copy">
+      <h2>¿Hablamos?</h2>
+      <p>Estamos para ayudarte a encontrar la prenda perfecta. Escribinos, visitanos o seguinos en redes — siempre con gusto de charlar de tejido.</p>
+    </div>
+
+    <div class="contact-cards">
+      <a class="contact-card" href="tel:+541145678900">
+        <span class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h3.6l1.4 5-2 1.5a11 11 0 0 0 5.5 5.5l1.5-2 5 1.4V19a2 2 0 0 1-2 2C11.5 21 3 12.5 3 6a2 2 0 0 1 2-2Z"/></svg></span>
+        <span>
+          <small>Teléfono</small>
+          <strong>+54 11 4567-8900</strong>
+        </span>
+      </a>
+      <a class="contact-card" href="mailto:hola@puntotierra.com">
+        <span class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5.5" width="17" height="13" rx="1.8"/><path d="m4.5 7 7.5 6 7.5-6"/></svg></span>
+        <span>
+          <small>Email</small>
+          <strong>hola@puntotierra.com</strong>
+        </span>
+      </a>
+      <a class="contact-card" href="https://maps.google.com/?q=Lomas+de+Zamora,+Buenos+Aires" target="_blank" rel="noopener">
+        <span class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.4 7-12a7 7 0 1 0-14 0c0 5.6 7 12 7 12Z"/><circle cx="12" cy="9" r="2.5"/></svg></span>
+        <span>
+          <small>Ubicación</small>
+          <strong>Lomas de Zamora, Bs. As.</strong>
+        </span>
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <span><svg class="footer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="7.5"/><path d="M7 9c2 1.5 2 4.5 0 6M12 6.2c1.7 2.3 1.7 9.3 0 11.6M17 9c-2 1.5-2 4.5 0 6"/></svg> <strong>Punto Tierra</strong> — Tejidos artesanales, Buenos Aires</span>
+    <span>© <span id="year"></span> Punto Tierra. Hecho a mano, con amor.</span>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="js/cart.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/header.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
