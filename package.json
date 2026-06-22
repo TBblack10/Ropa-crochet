@@ -1,5 +1,5 @@
 {
-  "name": "punto-tierra",
+  "name": "tejiendo-sueños",
   "version": "1.0.0",
   "description": "Punto Tierra — tejidos artesanales hechos a mano en Buenos Aires.",
   "private": true,
@@ -7,6 +7,6 @@
     "start": "npx serve . -l 3000",
     "dev": "npx live-server --port=3000"
   },
-  "keywords": ["punto-tierra", "tejidos", "ecommerce", "landing"],
+  "keywords": ["tejiendo-sueños", "tejidos", "ecommerce", "landing"],
   "license": "UNLICENSED"
 }

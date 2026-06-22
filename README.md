@@ -1,6 +1,6 @@
-# 🧶 Punto Tierra
+# 🧶 Tejiendo Sueños
 
-Landing page de e-commerce para **Punto Tierra**, tejidos artesanales hechos a mano en Buenos Aires. Sitio estático (HTML + CSS + JS vanilla, sin frameworks ni build step) listo para correr local, subir a GitHub y publicar.
+Landing page de e-commerce para **Tejiendo Sueños**, tejidos artesanales hechos a mano en Buenos Aires. Sitio estático (HTML + CSS + JS vanilla, sin frameworks ni build step) listo para correr local, subir a GitHub y publicar.
 
 ## Estructura del proyecto
 
@@ -61,12 +61,12 @@ python3 -m http.server 3000
 ## Subirlo a GitHub
 
 ```bash
-cd punto-tierra
+cd tejiendo-sueños
 git init
 git add .
 git commit -m "Primer commit: landing Punto Tierra"
 git branch -M main
-git remote add origin https://github.com/TU_USUARIO/punto-tierra.git
+git remote add origin https://github.com/TU_USUARIO/tejiendo-sueños.git
 git push -u origin main
 ```
 

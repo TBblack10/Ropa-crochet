@@ -1,25 +1,36 @@
 /* ============================================================
-   PUNTO TIERRA — Tejidos artesanales
+   TEJIENDO SUEÑOS — Tejidos artesanales
    ============================================================ */
 
 :root {
-  /* Paleta */
-  --terracotta: #c9805f;
-  --terracotta-dark: #b16a48;
-  --terracotta-deep: #a8623f;
-  --peach: #e6a87c;
-  --cream: #f7f0e4;
-  --cream-light: #fdfaf3;
-  --cream-card: #fdf8ee;
-  --sage: #aac79c;
-  --sage-dark: #8fae80;
-  --mustard: #e2cd92;
-  --mustard-dark: #d4b86e;
-  --rose: #e3b3a1;
-  --lavender: #c8b7da;
-  --ink: #4a3527;
-  --ink-soft: #6b5642;
-  --line: rgba(74, 53, 39, 0.12);
+  /* ── Paleta principal: lavanda & lila ── */
+  --lavanda: #9B7DC8;          /* botones principales */
+  --lavanda-dark: #8A6AB8;     /* hover de botones */
+  --lavanda-deep: #6B4FA8;     /* énfasis, texto accent */
+  --lavanda-light: #CDB7E8;    /* badges, fondos suaves */
+  --malva: #D8C6EB;            /* malva claro - fondos card */
+  --malva-dark: #BFA4DF;       /* lila suave */
+  /* ── Paleta secundaria ── */
+  --sage: #C9DCC6;             /* verde salvia - acento natural */
+  --sage-dark: #A8BEA5;
+  --rose-powder: #EBCDD2;      /* rosa empolvado */
+  /* ── Neutros artesanales ── */
+  --cream: #F0EAF8;            /* fondo secciones - lavanda muy claro */
+  --cream-light: #FAF9F7;      /* blanco roto */
+  --cream-card: #F5F0FB;       /* fondo cards */
+  /* ── Aliases heredados (no rompen selectores existentes) ── */
+  --terracotta: var(--lavanda);
+  --terracotta-dark: var(--lavanda-dark);
+  --terracotta-deep: var(--lavanda-deep);
+  --peach: var(--rose-powder);
+  --mustard: var(--malva);
+  --mustard-dark: var(--malva-dark);
+  --rose: var(--rose-powder);
+  --lavender: var(--lavanda-light);
+  /* ── Texto ── */
+  --ink: #2D1B4E;              /* dark purple */
+  --ink-soft: #6B5B8A;         /* medium purple */
+  --line: rgba(45, 27, 78, 0.12);
 
   --font-display: Georgia, 'Iowan Old Style', 'Palatino Linotype', serif;
   --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
@@ -27,8 +38,8 @@
   --radius-sm: 10px;
   --radius-md: 18px;
   --radius-lg: 28px;
-  --shadow-card: 0 10px 30px rgba(74, 53, 39, 0.08);
-  --shadow-pop: 0 14px 34px rgba(74, 53, 39, 0.14);
+  --shadow-card: 0 10px 30px rgba(100, 70, 180, 0.08);
+  --shadow-pop: 0 14px 34px rgba(100, 70, 180, 0.14);
 }
 
 * { box-sizing: border-box; }
@@ -104,7 +115,7 @@ button { font-family: inherit; cursor: pointer; }
 .btn-terracotta {
   background: var(--terracotta);
   color: #fff;
-  box-shadow: 0 8px 18px rgba(180, 100, 65, 0.35);
+  box-shadow: 0 8px 18px rgba(100, 70, 180, 0.30);
 }
 .btn-terracotta:hover { background: var(--terracotta-dark); }
 
@@ -113,12 +124,12 @@ button { font-family: inherit; cursor: pointer; }
   border-color: var(--terracotta);
   color: var(--terracotta-deep);
 }
-.btn-outline:hover { background: rgba(201, 128, 95, 0.08); }
+.btn-outline:hover { background: rgba(155, 125, 200, 0.10); }
 
 .btn-light {
   background: var(--cream-light);
   color: var(--terracotta-deep);
-  box-shadow: 0 6px 16px rgba(74, 53, 39, 0.18);
+  box-shadow: 0 6px 16px rgba(100, 70, 180, 0.14);
 }
 .btn-light:hover { background: #fff; }
 
@@ -132,8 +143,8 @@ button { font-family: inherit; cursor: pointer; }
   font-weight: 600;
   margin-bottom: 18px;
 }
-.badge-leaf { background: rgba(170, 199, 156, 0.35); color: #4c6741; }
-.badge-pink { background: rgba(227, 179, 161, 0.4); color: #934d34; }
+.badge-leaf { background: rgba(201, 185, 232, 0.35); color: var(--lavanda-deep); }
+.badge-pink { background: rgba(205, 183, 232, 0.4); color: var(--lavanda-deep); }
 .badge-star {
   position: absolute; top: 14px; left: 14px;
   background: var(--cream-light); color: var(--terracotta-deep);
@@ -158,9 +169,20 @@ button { font-family: inherit; cursor: pointer; }
    ============================================================ */
 .site-header { position: sticky; top: 0; z-index: 100; }
 
+.topbar-announce {
+  background: var(--lavanda-light);
+  padding: 8px 0;
+  text-align: center;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--lavanda-deep);
+  letter-spacing: 0.04em;
+}
 .topbar {
-  background: linear-gradient(120deg, var(--terracotta-deep), var(--peach));
-  padding: 16px 0;
+  background: #fff;
+  border-bottom: 1px solid var(--line);
+  padding: 14px 0;
+  box-shadow: 0 2px 12px rgba(100, 70, 180, 0.06);
 }
 .topbar-inner {
   display: flex;
@@ -180,11 +202,11 @@ button { font-family: inherit; cursor: pointer; }
 .logo-mark {
   width: 42px; height: 42px;
   border-radius: 50%;
-  background: rgba(255,255,255,0.25);
+  background: var(--lavanda-light);
   display: flex; align-items: center; justify-content: center;
   font-size: 1.3rem;
 }
-.logo-text { display: flex; flex-direction: column; color: #fff; line-height: 1.25; }
+.logo-text { display: flex; flex-direction: column; color: var(--ink); line-height: 1.25; }
 .logo-text strong { font-family: var(--font-display); font-size: 1.3rem; }
 .logo-text small { font-size: 0.68rem; letter-spacing: 0.08em; opacity: 0.9; }
 
@@ -203,8 +225,8 @@ button { font-family: inherit; cursor: pointer; }
   font-size: 0.9rem; color: var(--ink); min-width: 0;
 }
 .searchbar button {
-  background: var(--mustard-dark);
-  color: var(--ink);
+  background: var(--lavanda);
+  color: #fff;
   border: none;
   padding: 9px 18px;
   border-radius: 999px;
@@ -215,13 +237,13 @@ button { font-family: inherit; cursor: pointer; }
 .topbar-actions { display: flex; align-items: center; gap: 14px; flex-shrink: 0; }
 .cart-btn {
   position: relative;
-  background: rgba(255,255,255,0.22);
+  background: var(--cream);
   border: none;
   width: 44px; height: 44px;
   border-radius: 50%;
   font-size: 1.1rem;
   display: flex; align-items: center; justify-content: center;
-  color: #fff;
+  color: var(--lavanda-deep);
 }
 .cart-btn svg { width: 20px; height: 20px; }
 .cart-badge {
@@ -237,11 +259,11 @@ button { font-family: inherit; cursor: pointer; }
 /* ---------- Account menu ---------- */
 .account-menu { position: relative; }
 .account-btn {
-  background: rgba(255,255,255,0.22);
+  background: var(--cream);
   border: none;
   width: 44px; height: 44px;
   border-radius: 50%;
-  color: #fff;
+  color: var(--lavanda-deep);
   display: flex; align-items: center; justify-content: center;
 }
 .account-btn svg { width: 20px; height: 20px; }
@@ -285,7 +307,7 @@ button { font-family: inherit; cursor: pointer; }
   text-align: left;
 }
 .account-dropdown-link svg { width: 17px; height: 17px; flex-shrink: 0; }
-.account-dropdown-link:hover { background: rgba(201,128,95,0.1); color: var(--terracotta-deep); }
+.account-dropdown-link:hover { background: rgba(155,125,200,0.12); color: var(--terracotta-deep); }
 .account-dropdown-logout { color: #b54848; }
 .account-dropdown-guest { padding: 12px 10px; }
 .account-dropdown-guest p { font-size: 0.83rem; margin-bottom: 12px; }
@@ -296,7 +318,7 @@ button { font-family: inherit; cursor: pointer; }
 .cart-drawer.is-open { visibility: visible; }
 .cart-drawer-overlay {
   position: absolute; inset: 0;
-  background: rgba(74, 53, 39, 0.4);
+  background: rgba(45, 27, 78, 0.4);
   opacity: 0;
   transition: opacity 0.25s ease;
 }
@@ -384,7 +406,7 @@ button { font-family: inherit; cursor: pointer; }
   border: none;
   padding: 6px;
 }
-.nav-toggle span { width: 24px; height: 2px; background: #fff; border-radius: 2px; }
+.nav-toggle span { width: 24px; height: 2px; background: var(--ink); border-radius: 2px; }
 
 .mainnav { background: var(--cream-light); border-bottom: 1px solid var(--line); }
 .mainnav ul { display: flex; gap: 34px; padding: 13px 0; }
@@ -398,7 +420,7 @@ button { font-family: inherit; cursor: pointer; }
 /* ============================================================
    HERO
    ============================================================ */
-.hero { background: var(--cream); overflow: hidden; }
+.hero { background: var(--cream-light); overflow: hidden; }
 .hero-grid {
   display: grid;
   grid-template-columns: 1fr 1.15fr;
@@ -423,7 +445,7 @@ button { font-family: inherit; cursor: pointer; }
 }
 
 .hero-products {
-  background: linear-gradient(135deg, var(--peach), var(--terracotta-deep));
+  background: linear-gradient(135deg, var(--lavanda-light), var(--lavanda-deep));
   padding: 40px;
   display: grid;
   grid-template-columns: 1.15fr 1fr;
@@ -450,9 +472,9 @@ button { font-family: inherit; cursor: pointer; }
 }
 .hero-card--sm .garment { min-height: 130px; }
 
-.garment--terracotta { background: linear-gradient(160deg, #e7b193, #cf8c68); color: #8a4f33; }
+.garment--terracotta { background: linear-gradient(160deg, #DDD0F0, #B89AD8); color: #5E3E8A; }
 .garment--sage { background: linear-gradient(160deg, #c2dab4, #a3c393); color: #4c6741; }
-.garment--mustard { background: linear-gradient(160deg, #ecdca3, #d8bf7e); color: #8a6a2f; }
+.garment--mustard { background: linear-gradient(160deg, #F2D8E0, #E4B8C4); color: #8A4A6A; }
 
 .garment-svg { width: 70%; height: auto; }
 .hero-card--big .garment-svg { width: 56%; }
@@ -599,7 +621,7 @@ button { font-family: inherit; cursor: pointer; }
    PROMOCIONES
    ============================================================ */
 .promo {
-  background: linear-gradient(120deg, var(--terracotta-deep), var(--terracotta));
+  background: linear-gradient(120deg, var(--lavanda-deep), var(--lavanda));
   color: #fff;
   border-radius: var(--radius-lg);
   margin: 0 28px;
@@ -668,9 +690,9 @@ button { font-family: inherit; cursor: pointer; }
   padding: 20px;
 }
 .gallery-tile--tall { grid-row: span 2; }
-.gallery-tile--rose { background: var(--rose); color: #8a4f33; }
-.gallery-tile--lavender { background: var(--lavender); color: #5e4a78; }
-.gallery-tile--sage { background: var(--sage); color: #3f5536; }
+.gallery-tile--rose { background: var(--rose-powder); color: var(--lavanda-deep); }
+.gallery-tile--lavender { background: var(--lavanda-light); color: var(--lavanda-deep); }
+.gallery-tile--sage { background: var(--sage); color: #3f6644; }
 .gallery-tile svg { width: 55%; }
 
 .about-copy h2 { font-size: 2.5rem; }
@@ -689,7 +711,7 @@ button { font-family: inherit; cursor: pointer; }
    CONTACTO
    ============================================================ */
 .contact {
-  background: linear-gradient(120deg, var(--rose), var(--lavender));
+  background: linear-gradient(120deg, var(--lavanda-light), var(--malva));
   border-radius: var(--radius-lg);
   margin: 0 28px 90px;
   width: auto;
@@ -701,7 +723,7 @@ button { font-family: inherit; cursor: pointer; }
   align-items: center;
 }
 .contact-copy h2 { font-size: 2.6rem; }
-.contact-copy p { max-width: 380px; color: #5c4a4a; }
+.contact-copy p { max-width: 380px; color: var(--ink-soft); }
 
 .contact-cards { display: flex; flex-direction: column; gap: 14px; }
 .contact-card {
@@ -761,7 +783,7 @@ button { font-family: inherit; cursor: pointer; }
 .site-header--minimal .mainnav { display: none; }
 .auth-back-link {
   display: flex; align-items: center; gap: 8px;
-  color: #fff; font-size: 0.85rem; font-weight: 600;
+  color: var(--ink); font-size: 0.85rem; font-weight: 600;
   margin-left: auto;
 }
 .auth-back-link svg { width: 16px; height: 16px; }
@@ -855,7 +877,7 @@ button { font-family: inherit; cursor: pointer; }
   font-weight: 600;
 }
 .payment-option input { accent-color: var(--terracotta); width: 16px; height: 16px; }
-.payment-option.is-selected { border-color: var(--terracotta); background: rgba(201,128,95,0.06); }
+.payment-option.is-selected { border-color: var(--terracotta); background: rgba(155,125,200,0.08); }
 .payment-option svg { width: 20px; height: 20px; color: var(--terracotta-deep); flex-shrink: 0; }
 .payment-note { font-size: 0.78rem; color: var(--ink-soft); margin-top: 10px; }
 
@@ -899,7 +921,7 @@ button { font-family: inherit; cursor: pointer; }
 .confirm-card { max-width: 540px; text-align: center; background: var(--cream-light); border-radius: var(--radius-lg); box-shadow: var(--shadow-card); padding: 50px 40px; }
 .confirm-icon {
   width: 70px; height: 70px; border-radius: 50%;
-  background: rgba(170,199,156,0.35); color: #4c6741;
+  background: rgba(205, 185, 232, 0.35); color: var(--lavanda-deep);
   display: flex; align-items: center; justify-content: center;
   margin: 0 auto 22px;
 }
@@ -928,7 +950,7 @@ button { font-family: inherit; cursor: pointer; }
 .order-card-head strong { display: block; font-size: 0.95rem; }
 .order-card-head small { color: var(--ink-soft); font-size: 0.78rem; }
 .order-status {
-  background: rgba(170,199,156,0.35); color: #4c6741;
+  background: rgba(205, 185, 232, 0.35); color: var(--lavanda-deep);
   font-size: 0.72rem; font-weight: 700;
   padding: 5px 12px; border-radius: 999px;
   height: fit-content;
